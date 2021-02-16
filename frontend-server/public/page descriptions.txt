@@ -1,0 +1,13 @@
+Landing Page - index.html
+
+	PURPOSE: landing page for the bank website, registration of new users
+
+	FEATURES: display bank name, allow login, allow new register
+
+==================================================
+
+User Profile Page - account.html
+
+	PURPOSE: provide personal information to a specific user about all of their accounts and provide account related services
+
+	FEATURES: display list of accounts and balances, allow check deposit, allow account transfer, display list of transactions, display account information (account number), allow check deposit, allow account transfer

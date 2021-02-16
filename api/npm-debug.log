@@ -1,0 +1,98 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'debuggler@3' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData debuggler@3
+8 silly fetchNamedPackageData debuggler
+9 silly mapToRegistry name debuggler
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/debuggler
+13 verbose request uri https://registry.npmjs.org/debuggler
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 2:53:33 PM
+16 verbose request id 529833650967c14d
+17 verbose etag W/"0aca2dc61e1718764e939d71401c4120"
+18 verbose lastModified Sat, 26 May 2018 21:52:44 GMT
+19 http request GET https://registry.npmjs.org/debuggler
+20 http 304 https://registry.npmjs.org/debuggler
+21 verbose headers { date: 'Sat, 02 May 2020 21:53:33 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'set-cookie':
+21 verbose headers    [ '__cfduid=d552a4f17d42146e2073e18845e4865ad1588456413; expires=Mon, 01-Jun-20 21:53:33 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+21 verbose headers   'cf-ray': '58d4f9c83b21ed47-SJC',
+21 verbose headers   age: '28',
+21 verbose headers   'cache-control': 'public, max-age=300',
+21 verbose headers   etag: '"0aca2dc61e1718764e939d71401c4120"',
+21 verbose headers   'last-modified': 'Sat, 26 May 2018 21:52:44 GMT',
+21 verbose headers   vary: 'Accept-Encoding',
+21 verbose headers   'cf-cache-status': 'HIT',
+21 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 verbose headers   server: 'cloudflare',
+21 verbose headers   'cf-request-id': '0278fa71240000ed47d202c200000001' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Sat, 02 May 2020 21:53:33 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'set-cookie':
+22 silly get      [ '__cfduid=d552a4f17d42146e2073e18845e4865ad1588456413; expires=Mon, 01-Jun-20 21:53:33 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+22 silly get     'cf-ray': '58d4f9c83b21ed47-SJC',
+22 silly get     age: '28',
+22 silly get     'cache-control': 'public, max-age=300',
+22 silly get     etag: '"0aca2dc61e1718764e939d71401c4120"',
+22 silly get     'last-modified': 'Sat, 26 May 2018 21:52:44 GMT',
+22 silly get     vary: 'Accept-Encoding',
+22 silly get     'cf-cache-status': 'HIT',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     server: 'cloudflare',
+22 silly get     'cf-request-id': '0278fa71240000ed47d202c200000001' } ]
+23 verbose etag https://registry.npmjs.org/debuggler from cache
+24 verbose get saving debuggler to /home/vm/.npm/registry.npmjs.org/debuggler/.cache.json
+25 silly fetchPackageMetaData Error: No compatible version found: debuggler@3
+25 silly fetchPackageMetaData Valid install targets:
+25 silly fetchPackageMetaData 1.1.1-ALPHA, 1.0.2-ALPHA, 1.0.1-ALPHA, 1.0.0, 1.0.0-BETA, 1.0.0-ALPHA
+25 silly fetchPackageMetaData
+25 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:156:16)
+25 silly fetchPackageMetaData     at /usr/share/npm/node_modules/iferr/index.js:13:50
+25 silly fetchPackageMetaData     at /usr/share/npm/lib/utils/pulse-till-done.js:19:8
+25 silly fetchPackageMetaData     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+25 silly fetchPackageMetaData     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+25 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:135:15)
+25 silly fetchPackageMetaData  error for debuggler@3 Error: No compatible version found: debuggler@3
+25 silly fetchPackageMetaData Valid install targets:
+25 silly fetchPackageMetaData 1.1.1-ALPHA, 1.0.2-ALPHA, 1.0.1-ALPHA, 1.0.0, 1.0.0-BETA, 1.0.0-ALPHA
+25 silly fetchPackageMetaData
+25 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:156:16)
+25 silly fetchPackageMetaData     at /usr/share/npm/node_modules/iferr/index.js:13:50
+25 silly fetchPackageMetaData     at /usr/share/npm/lib/utils/pulse-till-done.js:19:8
+25 silly fetchPackageMetaData     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+25 silly fetchPackageMetaData     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+25 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:135:15)
+26 silly rollbackFailedOptional Starting
+27 silly rollbackFailedOptional Finishing
+28 silly runTopLevelLifecycles Starting
+29 silly runTopLevelLifecycles Finishing
+30 silly install printInstalled
+31 verbose stack Error: No compatible version found: debuggler@3
+31 verbose stack Valid install targets:
+31 verbose stack 1.1.1-ALPHA, 1.0.2-ALPHA, 1.0.1-ALPHA, 1.0.0, 1.0.0-BETA, 1.0.0-ALPHA
+31 verbose stack
+31 verbose stack     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:156:16)
+31 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+31 verbose stack     at /usr/share/npm/lib/utils/pulse-till-done.js:19:8
+31 verbose stack     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+31 verbose stack     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+31 verbose stack     at FSReqWrap.oncomplete (fs.js:135:15)
+32 verbose cwd /home/vm/workspace/cs160team1/api
+33 error Linux 5.3.0-51-generic
+34 error argv "/usr/bin/node" "/usr/bin/npm" "install" "debuggler@3"
+35 error node v8.10.0
+36 error npm  v3.5.2
+37 error No compatible version found: debuggler@3
+37 error Valid install targets:
+37 error 1.1.1-ALPHA, 1.0.2-ALPHA, 1.0.1-ALPHA, 1.0.0, 1.0.0-BETA, 1.0.0-ALPHA
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]

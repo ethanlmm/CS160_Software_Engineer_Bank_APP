@@ -1,0 +1,259 @@
+:root{
+    --headCol: #0060B8;
+    --pageCol: #f0f0ff;
+    --highlight: #003068;
+    --panelCol: #ffffff;
+    --shadowCol: rgba(0,0,0,0.2);
+    --textCol: #202020;
+    --textColGray: #b0b0b0;
+    --textColHead: #ffffff;
+    --headSize: 80px;
+    --marginSize: 20px;
+    --padding: 20px;
+    --panelSize: 200px;
+    --buttonSize: 40px;
+    --accSize: 60px;
+    --radius: 10px;
+    --fontTiny: 16px;
+    --fontSmall: 18px;
+    --fontMedium: 22px;
+    --fontBig: 24px;
+    --fontHuge: 32px;
+}
+
+.login-page{
+    width: 360px;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+.form{
+    position: relative;
+    z-index: 1;
+    background: rgba( 7,40,195,0.8);
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+.form input{
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #3446B9;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+
+
+}
+.form button:hover,.form button:active{
+    background: #43A047;
+}
+
+.form .message{
+    margin: 15px 0 0;
+    color: aliceblue;
+    font-size: 12px;
+}
+
+.form .message a{
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.form .register-form{
+    display: none;
+}
+
+.tBox{
+    vertical-align: center;
+    border: solid var(--headCol) 3px;
+    background-color: var(--pageCol);
+    font-family: monospace;
+    font-size: var(--fontMedium);
+}
+
+.gray{
+    color: var(--textColGray);
+    font-weight: bold;
+    font-size: var(--fontTiny);
+    font-family: monospace;
+}
+
+body{
+    background-color: var(--pageCol);
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+header{
+    height: var(--headSize);
+    background-color: var(--headCol);
+    padding-right: var(--padding);
+    padding-left: var(--padding);
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+    box-shadow: 3px 3px 8px var(--shadowCol);
+}
+#head{
+    height: var(--headSize);
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+h2.head {
+    color: var(--textColHead);
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #222222;
+    font-size: var(--fontBig);
+    transition: 0.3s;
+}
+h2.head:hover{
+    text-shadow: 2px 2px 10px black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+h2.head:active{
+    text-shadow: 1px 1px 1px black;
+    transition: 0.1s;
+}
+h2.title{
+    color: var(--textColHead);
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #222222;
+    font-size: var(--fontHuge);
+    text-align: center;
+}
+
+.panel{
+    background-color: var(--panelCol);
+    position: fixed;
+    top: calc(var(--headSize) + var(--marginSize));
+    width: var(--panelSize);
+    border-radius: var(--radius);
+    min-height: var(--buttonSize);
+    box-shadow: 3px 3px 8px var(--shadowCol);
+}
+#right{ right: var(--marginSize); }
+#left{ left: var(--marginSize); }
+
+.main{
+    vertical-align: top;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: var(--marginSize);
+    top: 0px;
+    width: 100%;
+}
+.main2{
+    text-align: left;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: var(--marginSize);
+    background-color: var(--panelCol);
+    border-radius: var(--radius);
+    box-shadow: 3px 3px 8px var(--shadowCol);
+}
+
+.margin{
+    width: var(--marginSize);
+    height: var(--marginSize);
+    /*test margins*/
+    /* background-color: red; */
+}
+.panelMargin{
+    width: var(--panelSize);
+    height: var(--panelSize);
+}
+.headMargin{
+    height: var(--headSize);
+}
+
+table, tr, th{
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+    vertical-align: center;
+    white-space: nowrap;
+    text-align: center;
+}
+td{
+    text-align: left;
+    height: var(--accSize);
+    font-size: var(--fontMedium);
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+td.money{
+    text-align: right;
+    font-family: monospace;
+    font-size: var(--fontHuge);
+}
+td.acc, td.gray, td.money, td.panelCell{
+    padding-left: var(--marginSize);
+    padding-right: var(--marginSize);
+}
+
+button, .button{
+    border: none;
+    background-color: var(--panelCol);
+    height: var(--buttonSize);
+    width: 100%;
+    font-size: var(--fontSmall);
+    font-weight: normal;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover, .button:hover{
+    background-color: var(--pageCol);
+    box-shadow: -4px 0px 0px var(--headCol);
+    transition: 0.2s;
+}
+button:active, .button:active, #selected{
+    color:white;
+    background-color: var(--headCol);
+    transition: 0s;
+}
+button:focus, .button:focus{
+    outline: none;
+}
+.panelTop{
+    height: var(--radius);
+    border-top-right-radius: var(--radius);
+    border-top-left-radius: var(--radius);
+}
+.panelBottom{
+    height: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+}
+#logOut{
+    font-weight: bold;
+    color: firebrick;
+}
+#accounts{
+    width: 100%;
+}

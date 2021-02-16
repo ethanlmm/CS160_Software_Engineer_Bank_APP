@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Power Account</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icon.png">
+    <script src="script.js"></script>
+    <meta name="author" content="Narbeh Malekian, Pranika Bedi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="loadProfile()">
+
+    <!-- header bar -->
+    <table id="head">
+        <tr>
+            <td class="margin"></td>
+            <td>
+                <header>
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 id="username" class="head">loading profile...</h2>
+                            </td>
+                            <td style="width: 100%">
+                                <h2 id="pagename" class="title">Account Summary</h2>
+                            </td>
+                            <td>
+                                <h2 onclick="changePage('land')" class="head">Power Bank</h2>
+                            </td>
+                        </tr>
+                    </table>
+                </header>
+            </td>
+            <td class="margin"></td>
+        </tr>
+    </table>
+
+
+    <!-- left panel -->
+    <table class="panel" id="left">
+        <tr>
+            <th class="panelTop"></th>
+        </tr>
+        <tr>
+            <th><button onclick="changePage('home')"><strong>
+             Reload Accounts</strong></button></th>
+        </tr>
+        <tr>
+            <th><button onclick="load('newAcc')">
+             Open New Account</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="load('userSetting')">
+            User Settings</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="load('support')">
+            Support and Info</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="changePage('logOut')" , id="logOut">
+            Log Out</button></th>
+        </tr>
+        <tr>
+            <th class="panelBottom"></th>
+        </tr>
+    </table>
+
+    <!-- right panel -->
+    <table class="panel" id="right">
+        <tr>
+            <th class="panelTop"></th>
+        </tr>
+        <tr>
+            <th><button onclick="load('transactionPanel')">
+             View Transactions</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="load('transferPanel')">
+              Begin Transfer</button></th>
+        </tr>
+        <!--<tr>
+            <th><button onclick="load('depositPanel')">
+              Deposit Check</button></th>
+        </tr>-->
+        <tr>
+            <th><button onclick="load('accountSetting')">
+              Account Settings</button></th>
+        </tr>
+        <tr>
+            <th class="panelBottom"></th>
+        </tr>
+    </table>
+
+    <!-- page body -->
+    <table class="main">
+
+        <tr>
+            <!-- Account Panel -->
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table id="accounts">
+                    <tr class="headMargin"></tr>
+                    <tr class="headMargin"></tr>
+                    <!-- JS fills accounts here -->
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+        <tr>
+            <td class="margin"></td>
+        </tr>
+
+        <tr class="secondaryPanel" id="transactionPanel" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table id="transactions">
+                    <tr>
+                        <td class="acc">
+                            <h3>Transactions</h3>
+                        </td>
+                    </tr>
+                    <!-- JS fills transactions here -->
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+        <tr class="secondaryPanel" id="transferPanel" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table>
+                    <tr>
+                        <td class="acc">
+                            <h3>Transfer Funds</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">from</td>
+                        <td class="panelCell">to</td>
+                        <td class="panelCell">amount</td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell" id="donor">No Account Selected</td>
+                        <td class="panelCell"><input type="text" placeholder="account number" id="transfer-to" class="tBox"></td>
+                        <td class="panelCell"><input type="text" placeholder="transfer amount" id="transfer-value" class="tBox"></td>
+                        <td class="button" onclick="doAction('Transfer')">
+                            <h3>SEND</h3>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+        <!--<tr class="secondaryPanel" id="depositPanel" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table>
+                    <tr>
+                        <td class="acc">
+                            <h3>Deposit Check</h3>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>-->
+
+        <tr class="secondaryPanel" id="accountSetting" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table>
+                    <tr>
+                        <td class="acc">
+                            <h3>Account Settings</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Account Name</td>
+                        <td class="panelCell" id="fill-accName">Loading...</td>
+                        <td class="panelCell"><input type="text" placeholder="new account name" id="acc-accName" class="tBox"></td>
+                        <td class="button" onclick="doAction('ChangeAccountName')">
+                            <h3>Change</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Account Type</td>
+                        <td class="panelCell" id="fill-accType">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Account Number</td>
+                        <td class="panelCell" id="fill-accNum">
+                            <div class="gray">Loading...</div>
+                        </td>
+                    </tr>
+                    <tr onclick="doAction('CloseAccount')" class="button">
+                        <td class="panelCell" style="font-weight: bold;color: firebrick;">Close Account</td>
+                    </tr>
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+        <tr class="secondaryPanel" id="newAcc" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table id="transactions">
+                    <tr>
+                        <td class="acc">
+                            <h3>Open New Account</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Account Name</td>
+                        <td class="panelCell"><input type="text" placeholder="new account name" id="newAcc-AccName" class="tBox"></td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Account Type</td>
+                        <td class="panelCell"><select id="newAcc-accType" class="tBox"><option value="C">Checking</option><option value="S">Savings</option></select></td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Deposit Amount</td>
+                        <td class="panelCell"><input type="text" placeholder="deposit in USD" id="newAcc-accValue" class="tBox"></td>
+                        <td class="button" onclick="doAction('OpenAccount')">
+                            <h3>Create</h3>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+        <tr class="secondaryPanel" id="userSetting" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table>
+                    <tr>
+                        <td class="acc">
+                            <h3>User Settings</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">User ID</td>
+                        <td class="panelCell" id="fill-userID">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Full Name</td>
+                        <td class="panelCell" id="fill-firstName">Loading...</td>
+                        <td class="panelCell" id="fill-lastName">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Change Name</td>
+                        <td class="panelCell"><input type="text" placeholder="new first name" id="set-first" class="tBox"></td>
+                        <td class="panelCell"><input type="text" placeholder="new last name" id="set-last" class="tBox"></td>
+                        <td class="button" onclick="doAction('ChangeName')">
+                            <h3>Change</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Address</td>
+                        <td class="panelCell" id="fill-address">Loading...</td>
+                        <td class="panelCell"><input type="text" placeholder="new address" id="set-addr" class="tBox"></td>
+                        <td class="button" onclick="doAction('ChangeAddress')">
+                            <h3>Change</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Password</td>
+                        <td class="panelCell"><input type="password" placeholder="old password" id="set-oldPass" class="tBox"></td>
+                        <td class="panelCell"><input type="password" placeholder="new password" id="set-newPass" class="tBox"></td>
+                        <td class="button" onclick="doAction('ChangePassword')">
+                            <h3>Change</h3>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+        <tr class="secondaryPanel" id="support" style="visibility: collapse;">
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table>
+                    <tr>
+                        <td class="acc">
+                            <h3>Support and Information</h3>
+                        </td>
+                    </tr>
+                    <tr class="button" onclick="changePage('map')">
+                        <td class="panelCell">Find Chase ATM</td>
+                    </tr>
+                    <tr>
+                        <td class="panelCell">Support Email: <u>do@notcontact.us</u></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+
+    </table>
+
+</body>

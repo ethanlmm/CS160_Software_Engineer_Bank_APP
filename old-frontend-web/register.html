@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<head>
+    <title>Bank</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icon.png">
+    <script src="script.js"></script>
+    <meta name="author" content="Narbeh Malekian, Pranika Bedi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body> -->
+    <!-- header bar -->
+    <!-- <table id="head">
+        <tr>
+            <td class="margin"></td>
+            <td><header><table><tr>
+                <td><h2 onclick="window.location = 'home.html'" class="head">Cancel</h2></td>
+                <td style="width: 100%"><h2 id="pagename" class="title">Register</h2></td>
+                <td><h2 onclick="window.location = 'home.html'" class="head">NotChase Bank</h2></td>
+            </tr></table></header></td>
+            <td class="margin"></td>
+        </tr>
+    </table> -->
+
+    <!-- page body -->
+    <!-- <table class="main">
+        <tr>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+            <td class="main2">
+                <table id="register">
+                    <tr class="headMargin"></tr>
+                    <tr class="headMargin"></tr> -->
+                    <!-- register html here -->
+
+                <!-- </table>
+            </td>
+            <td class="margin"></td>
+            <td class="panelMargin"></td>
+            <td class="margin"></td>
+        </tr>
+    </table>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<head>
+	<title>Login and Register</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icon.png">
+    <script src="script.js"></script>
+    <meta name="author" content="Narbeh Malekian, Pranika Bedi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body> 
+    <table id="head">
+        <tr>
+            <td class="margin"></td>
+            <td><header><table><tr>
+                <td><h2 onclick="window.location = 'home.html'" class="head">Cancel</h2></td>
+                <td style="width: 100%"><h2 id="pagename" class="title">Register</h2></td>
+                <td><h2 onclick="window.location = 'home.html'" class="head">NotChase Bank</h2></td>
+            </tr></table></header></td>
+            <td class="margin"></td>
+        </tr>
+    </table>
+	<div class="login-page">
+	<div class="form">
+		<form class="register-form">
+		<input type="text" placeholder="First Name"/>
+		<input type="text" placeholder="Last Name"/>
+		<input type="text" placeholder="Password"/>
+		<input type="text" placeholder="Address"/>
+		<button>Create</button>
+		<p class="message">Already registered? <a href="#"> Login </a> </p>
+		</form>
+
+		<form class="login-form">
+			<input type="text" placeholder="username"/>
+			<input type="text" placeholder="password"/>
+			<button>login</button>
+			<p class="message">Not Registered? <a href="#">Register</a> </p>
+		</form>
+
+	</div>
+	</div>
+
+	<script src= 'https://code.jquery.com/jquery-3.4.1.min.js'>			
+</script>
+<script>
+	$('.message a').click(function(){
+		$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+	});
+</script>
+
+
+
+</body>
+</html>
+
+
+

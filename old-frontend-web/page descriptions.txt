@@ -1,0 +1,37 @@
+Home Page - home.html
+
+	PURPOSE: landing page for the bank website
+
+	FEATURES: display bank name, allow login, allow new register
+
+==================================================
+
+Registration Page - register.html
+
+	PURPOSE: registration of new users
+
+	FEATURES: accept input of personal information, display user ID, allow login
+
+==================================================
+
+Profile Page - profile.html
+
+	PURPOSE: provide personal information to a specific user about all of their accounts and provide account related services
+
+	FEATURES: display list of accounts and balances, allow check deposit, allow account transfer
+
+==================================================
+
+Account Page - account.html
+
+	PURPOSE: provide information to a specific user about a specific account
+
+	FEATURES: display list of transactions, display account information (account number), allow check deposit, allow account transfer
+
+==================================================
+
+Error Page - index.html
+
+	PURPOSE: notify user of invalid action, catch broken links
+
+	FEATURES: display error message, allow return to website

@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>Chase ATM Locator</title>
+    <meta charset="utf-8" />
+<title>Add a geocoder</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+  </head>
+  <body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+  type="text/css"
+  />
+  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+  <div id="map"></div>
+    <script src= "geojson.js"></script>
+  <script>
+  	mapboxgl.accessToken = 'pk.eyJ1IjoibmVpbG1hanVtZGFyMTkiLCJhIjoiY2s2bzlzYWxiMGt3bTNtbXo3b3puOXlveiJ9.BP-LT8DazneBE2hFm8hmRw';
+  var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/neilmajumdar19/ck9bnoo11077v1ipcqlj4asvx',
+  center: [-100, 40],
+  zoom: 24
+
+  });
+
+  map.addControl(
+  new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  mapboxgl: mapboxgl
+  })
+  );
+  map.addControl(new mapboxgl.NavigationControl());
+  map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['chase-atms'] // replace this with the name of the layer
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  if(feature.properties.place_name !== undefined)
+  {
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.place_name + '</h3>')
+    .addTo(map);
+  }
+  else {
+    var popup = new mapboxgl.Popup({ offset: [0, -15] })
+      .setLngLat(feature.geometry.coordinates)
+      .setHTML('<h3>' + "Address not available" + '</h3>')
+      .addTo(map);
+  }
+});
+
+  </script>
+
+
+  </body>
+</html>

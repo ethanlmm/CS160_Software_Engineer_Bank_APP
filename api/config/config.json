@@ -1,0 +1,15 @@
+{
+    "production": {
+        "username": "cs160",
+        "password": "123456",
+        "database": "cs160",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    },
+    "mysql": {
+        "host": "127.0.0.1",
+        "user": "cs160",
+        "password": "123456"
+    }
+}

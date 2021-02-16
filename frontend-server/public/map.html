@@ -1,0 +1,207 @@
+<html>
+
+<head>
+    <title>Chase Locate</title>
+    <meta charset="utf-8" />
+    <title>Add a geocoder</title>
+    <link rel="icon" href="icon.png">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="author" content="Neil Majumdar">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+    <script src="script.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+         :root {
+            --tint: #0060B8;
+            --tintLight: #f0f0ff;
+            --tintDark: #003068;
+            --panelCol: #ffffff;
+            --shadowCol: rgba(0, 0, 0, 0.2);
+            --textCol: #202020;
+            --textColGray: #b0b0b0;
+            --textColHead: #ffffff;
+            --headSize: 60px;
+            --marginSize: 20px;
+            --padding: 20px;
+            --panelSize: 170px;
+            --panelAndMargin: 240px;
+            --buttonSize: 40px;
+            --accSize: 60px;
+            --radius: 10px;
+            --fontTiny: 14px;
+            --fontSmall: 16px;
+            --fontMedium: 20px;
+            --fontBig: 22px;
+            --fontHuge: 32px;
+        }
+        
+        h2 {
+            margin: 0px;
+            color: var(--textColHead);
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #222222;
+            font-size: var(--fontHuge);
+            text-align: center;
+        }
+        
+        table,
+        tr,
+        th {
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            vertical-align: center;
+            white-space: nowrap;
+            text-align: center;
+        }
+        
+        td {
+            text-align: left;
+            height: var(--accSize);
+            font-size: var(--fontSmall);
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        
+        body {
+            top: 0px;
+            margin: 0px;
+            padding: 0px;
+            background-color: f0f0ff;
+            font-family: sans-serif;
+        }
+        
+        header {
+            margin-left: var(--marginSize);
+            margin-right: var(--marginSize);
+            height: var(--headSize);
+            background-color: var(--tint);
+            padding-right: var(--padding);
+            padding-left: var(--padding);
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: var(--radius);
+            border-bottom-left-radius: var(--radius);
+            box-shadow: 3px 3px 8px var(--shadowCol);
+        }
+        
+        #head {
+            height: var(--headSize);
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+        
+        h2.head {
+            color: var(--textColHead);
+            font-weight: bold;
+            text-shadow: 1px 1px 3px #222222;
+            font-size: var(--fontBig);
+            transition: 0.3s;
+        }
+        
+        h2.head:hover {
+            text-shadow: 2px 2px 10px black;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        h2.head:active {
+            text-shadow: 1px 1px 1px black;
+            transition: 0.1s;
+        }
+        
+        #map {
+            position: absolute;
+            top: 80px;
+            bottom: var(--marginSize);
+            right: var(--marginSize);
+            left: var(--marginSize);
+            border: solid #0060B8 3px;
+            border-radius: var(--radius);
+            box-shadow: 3px 3px 8px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css" />
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+    <!-- header bar -->
+    <table id="head">
+        <tr>
+            <td>
+                <header>
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 onclick="changePage('login')" class="head">Return</h2>
+                            </td>
+                            <td style="width: 100%">
+                                <h2 id="pagename" class="title">Chase Location Finder</h2>
+                            </td>
+                            <td>
+                                <h2 onclick="changePage('land')" class="head">Power Bank</h2>
+                            </td>
+                        </tr>
+                    </table>
+                </header>
+            </td>
+        </tr>
+    </table>
+
+    <div id="map"></div>
+    <script src="geojson.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmVpbG1hanVtZGFyMTkiLCJhIjoiY2s2bzlzYWxiMGt3bTNtbXo3b3puOXlveiJ9.BP-LT8DazneBE2hFm8hmRw';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/neilmajumdar19/ck9bnoo11077v1ipcqlj4asvx',
+            center: [-100, 40],
+            zoom: 24
+
+        });
+
+        map.addControl(
+            new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+            })
+        );
+        map.addControl(new mapboxgl.NavigationControl());
+        map.on('click', function(e) {
+            var features = map.queryRenderedFeatures(e.point, {
+                layers: ['chase-atms'] // replace this with the name of the layer
+            });
+
+            if (!features.length) {
+                return;
+            }
+
+            var feature = features[0];
+
+            if (feature.properties.place_name !== undefined) {
+                var popup = new mapboxgl.Popup({
+                        offset: [0, -15]
+                    })
+                    .setLngLat(feature.geometry.coordinates)
+                    .setHTML('<h3>' + feature.properties.place_name + '</h3>')
+                    .addTo(map);
+            } else {
+                var popup = new mapboxgl.Popup({
+                        offset: [0, -15]
+                    })
+                    .setLngLat(feature.geometry.coordinates)
+                    .setHTML('<h3>' + "Address not available" + '</h3>')
+                    .addTo(map);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Power Bank ATM</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icon.png">
+    <script src="script.js"></script>
+    <meta name="author" content="Narbeh Malekian, Pranika Bedi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- header bar -->
+    <table id="head">
+        <tr>
+            <td class="margin"></td>
+            <td>
+                <header>
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 id="username" class="head">Insert Debit Card</h2>
+                            </td>
+                            <td style="width: 100%">
+                                <h2 id="pagename" class="title">Power Bank ATM</h2>
+                            </td>
+                        </tr>
+                    </table>
+                </header>
+            </td>
+            <td class="margin"></td>
+        </tr>
+    </table>
+
+    <div class="atm-buttonPanel">
+        <div onclick="atmSwitch('Deposit')" class="atm-button">Deposit</div>
+        <div onclick="atmSwitch('Withdraw')" class="atm-button">Withdraw</div>
+        <div onclick="atmStop()" class="atm-button">Return Card</div>
+    </div>
+
+    <div id="atm-balance" class="atm-main">
+        Account Balance: <span id="atm-accountBalance"></span>
+    </div>
+
+    <div id="atm-deposit" class="atm-main">
+        <p>Insert Cash...</p>
+        <p id="atm-cash"></p>
+        <button onclick="doAction('Deposit')">Done</button>
+    </div>
+
+    <div id="atm-withdraw" class="atm-main">
+        <button onclick="withdrawAmount(20)">Get $20</button>
+        <button onclick="withdrawAmount(40)">Get $40</button>
+        <button onclick="withdrawAmount(60)">Get $60</button>
+        <input type="text" placeholder="Enter amount to withdraw" id="atm-withdrawAmount">
+        <button onclick="withdrawAmount(undefined)">Get Other Amount</button>
+    </div>
+
+    <div id="atm-login" class="atm-main">
+        <button onclick="doAction('Login')">Log In</button>
+    </div>
+
+    <div class="atm-input">
+        <p>ATM Interaction Panel</p>
+        <input type="text" placeholder="user ID" id="atm-login-userID">
+        <input type="text" placeholder="account number" id="atm-accountID"><br>
+        <button onclick="atmStart()">Insert Debit Card</button><br>
+        <button onclick="atmStop()">Remove Debit Card</button><br>
+        <button onclick="atmFund(1)">Insert $1&nbsp;</button><button onclick="atmFund(5)">Insert $5</button><br>
+        <button onclick="atmFund(10)">Insert $10</button><button onclick="atmFund(20)">Insert $20</button><br>
+        <button onclick="atmFund(50)">Insert $50</button><button onclick="atmFund(100)">Insert $100</button><br>
+        <p id="atm-output"></p>
+    </div>
+
+</body>
+
+</html>

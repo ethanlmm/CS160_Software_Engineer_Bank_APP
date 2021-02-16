@@ -1,0 +1,11 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "sample express code",
+  "main": "script.js",
+  "scripts": {
+    "start": "node frontend.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
